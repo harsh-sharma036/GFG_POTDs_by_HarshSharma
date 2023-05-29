@@ -1,0 +1,16 @@
+class Solution{
+public:
+vector<string> CamelCase(int N, vector<string> Dictionary, string Pattern) {
+        vector<string> ans;
+        for(auto h:Dictionary){
+            int j=0;
+            for(int i=0;i<h.length();i++){
+                if(j<Pattern.length() and h[i]==Pattern[j])j++;
+                else if(isupper(h[i]))break;
+            }
+            if(j==Pattern.length())ans.push_back(h);
+        }
+        if(ans.size()==0)ans.push_back("-1");
+        return ans;
+    }
+};    
