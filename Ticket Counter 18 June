@@ -1,0 +1,29 @@
+    int distributeTicket(int N, int K) {
+        // code here
+        deque <int> q;
+        int ans;
+        int a = 0, b = 0;
+        
+        
+        for(int i=1; i<=N ; i++){
+             q.push_back(i);
+        }
+        while(!q.empty()){
+            if(a!= K){
+             q.pop_front();
+               a++;
+               ans = q.back();
+            }
+            else{
+                q.pop_back();
+                b++;
+                if(b == K){
+                    b = 0;
+                    a = 0;
+                }
+                ans = q.front();
+            }
+           
+        }
+        return ans;
+    }
