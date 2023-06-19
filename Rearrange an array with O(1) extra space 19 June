@@ -1,0 +1,16 @@
+    class solution{
+    public:
+    void sol(long long arr[],int i,int n){
+        if(i==n)
+        return;
+        int t=  arr[arr[i]];
+        sol(arr,i+1,n);
+        arr[i]=t;
+        
+    }
+    
+    void arrange(long long arr[], int n) {
+        // Your code here
+        sol(arr,0,n);
+    }
+    };
