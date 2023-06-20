@@ -1,0 +1,3 @@
+    int sumOfNaturals(int n) {
+      return (long) n*(n+1) % 1000000007/2;
+    }
