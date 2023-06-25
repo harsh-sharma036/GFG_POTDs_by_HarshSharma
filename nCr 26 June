@@ -1,0 +1,27 @@
+    int nCr(int n, int r){
+    int mod = 1e9 + 7;   
+    int arr[n + 1][r + 1];
+    
+    if (n == r)
+        return 1;
+        
+    if(n < r)
+        return 0;
+
+    for (int i = 0; i <= n; i++){
+        for (int j = 0; j <= r; j++){
+            
+            if (i == j || j == 0)
+                arr[i][j] = 1;
+
+            else
+                arr[i][j] =(arr[i - 1][j] % mod) + (arr[i - 1][j - 1] % mod) % mod;
+        }
+    }
+
+    return (arr[n][r] % mod);
+    
+    //happy coding
+    
+    //code link is given in the description
+    }
