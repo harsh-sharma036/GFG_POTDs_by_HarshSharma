@@ -1,0 +1,29 @@
+struct Node* makeUnion(struct Node* head1, struct Node* head2)
+    {
+        // code here
+        set <int> st;
+        struct Node* ptr = head1;
+        struct Node* qtr = head2;
+        
+        while(ptr != NULL){
+           st.insert(ptr -> data);
+           ptr = ptr -> next;
+        }
+        
+        while(qtr != NULL){
+           st.insert(qtr -> data);
+           qtr = qtr -> next;
+        }
+        
+
+        struct Node* ans = new Node(0);
+        struct Node* mtr = ans;
+        
+        for(auto i : st){
+          struct Node* temp = new Node(i);
+          mtr -> next = temp ;
+          mtr = mtr -> next;
+        }
+        
+        return ans -> next;
+    }
