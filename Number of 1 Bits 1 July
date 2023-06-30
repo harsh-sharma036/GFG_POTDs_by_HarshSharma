@@ -1,0 +1,16 @@
+    int setBits(int N) {
+        // Write Your Code here
+
+        //Approach 1 (using inbuilt c++ function)
+        // int ans =__builtin_popcount(N);  //This function returns the setbit count.
+        // return ans;
+        
+        //Approach 2 (brute force)
+        int ans=0;
+        while(N>0){
+            if(N%2 == 1) ans++;
+            N=N/2;
+        }
+        return ans;
+        
+    }
