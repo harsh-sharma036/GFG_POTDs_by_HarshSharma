@@ -1,0 +1,56 @@
+int maxIndexDiff(int arr[], int n) {
+        
+    int* leftMin = new int[n];
+    int* rightMax = new int[n];
+
+    leftMin[0] = arr[0];
+    for (int i = 1; i < n; i++)
+        leftMin[i] = min(arr[i], leftMin[i - 1]);
+
+    rightMax[n - 1] = arr[n - 1];
+    for (int i = n - 2; i >= 0; i--)
+        rightMax[i] = max(arr[i], rightMax[i + 1]);
+
+    int maxDiff = 0;
+    int i = 0, j = 0;
+    while (i < n && j < n) {
+        if (leftMin[i] <= rightMax[j]) {
+            maxDiff = max(maxDiff, j - i);
+            j++;
+        } else {
+            i++;
+        }
+    }
+
+    delete[] leftMin;
+    delete[] rightMax;
+
+    return maxDiff;    
+        // code here
+        // int maxi = INT_MIN;
+        
+        // for(int i = 0; i<n ; i++){
+        //     for(int j = i; j<n; j++){
+        //         if(arr[i] <= arr[j]){
+        //             maxi = max(maxi, j-i) ;
+        //         }
+        //     }
+        // }
+        
+        // return maxi;
+        
+    //         int ans = 0, i = 0, j = n - 1;
+    // while (i <= j){
+    //     if (arr[i] <= arr[j]){
+    //         ans = max(ans, j - i);
+    //         i++;
+    //         j = n - 1;
+    //     }
+    //     else
+    //         j--;
+    // }
+    // return ans;
+    
+
+    
+    }
